@@ -1,3 +1,484 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb}
+\usepackage{esint}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\begin{document}
+
+\section*{İÇİNDEKİLER}
+
+\begin{enumerate}
+    \item \textbf{GİRİŞ}
+    \item \textbf{TEMEL KAVRAMLAR}
+    \item \textbf{KÜRESEL KONİKLER}
+    \item \textbf{T-konik, B-konik ve N-konik Eğriler ve Karakterizasyonları}
+    \begin{enumerate}
+        \item T-konik Eğri
+        \item B-konik Eğri
+        \item N-konik Eğri
+        \item T-konik Eğri Ailesi
+    \end{enumerate}
+    \item \textbf{TH-konik, BH-konik ve NH-konik Eğriler ve Karakterizasyonları}
+    \begin{enumerate}
+        \item TH-konik Eğri
+        \item BH-konik Eğri
+        \item NH-konik Eğri
+        \item TH-konik Eğri Ailesi
+    \end{enumerate}
+    \item \textbf{TEĞETLER GÖSTERGESİ KÜRESEL PARABOL OLAN EĞRİLER}
+    \item \textbf{ÖRNEKLER}
+    \item \textbf{KAYNAKLAR}
+\end{enumerate}
+
+\newpage
+
+\section*{SİMGELER VE KISALTMALAR}
+
+\begin{tabular}{ll}
+$\mathbb{R}^3$ & : 3-boyutlu Öklid uzayı \\
+$\mathbb{S}^2$ & : Birim küre \\
+$\langle \, , \, \rangle$ & : İç çarpım fonksiyonu \\
+$\times$ & : Vektörel çarpım fonksiyonu \\
+$T$ & : Teğetler göstergesi \\
+$N$ & : Normaller göstergesi \\
+$B$ & : Binormaller göstergesi \\
+$\kappa$ & : Eğrilik \\
+$\tau$ & : Torsion (burulma) \\
+\end{tabular}
+
+\newpage
+
+\section*{2. Temel Kavramlar}
+
+\textbf{Tanım 2.1} \\
+$R$ reel sayılar kümesini göstermek üzere,
+\[
+\mathbb{R}^n = \{(x_1, x_2, \ldots, x_n) : x_i \in \mathbb{R} \}
+\]
+vektör uzayında, $x = (x_1, x_2, \ldots, x_n)$ ve $y = (y_1, y_2, \ldots, y_n) \in \mathbb{R}^n$ olmak üzere,
+\[
+\langle x, y \rangle = \sum_{i=1}^n x_i y_i
+\]
+eşitliği ile tanımlanan,
+\[
+\langle \cdot, \cdot \rangle : \mathbb{R}^n \times \mathbb{R}^n \to \mathbb{R}, \quad (x, y) \mapsto \langle x, y \rangle
+\]
+fonksiyonu, $\mathbb{R}^n$ uzayında bir iç çarpımdır. Bu iç çarpıma, $\mathbb{R}^n$ uzayının doğal iç çarpımı veya Öklid iç çarpımı denir.
+
+$x \in \mathbb{R}^n$ için,
+\[
+\|x\| = \sqrt{\langle x, x \rangle}
+\]
+olmak üzere,
+\[
+\|\cdot\| : \mathbb{R}^n \to \mathbb{R}, \quad x \mapsto \sqrt{\langle x, x \rangle}
+\]
+fonksiyonu, $\mathbb{R}^n$ uzayında bir normdur. Buna göre, $\mathbb{R}^n$ uzayına normlu vektör uzayı denir.
+
+\[
+d(x, y) = \|x - y\|
+\]
+biçiminde tanımlanan $d : \mathbb{R}^n \times \mathbb{R}^n \to \mathbb{R}$ fonksiyonu, $\mathbb{R}^n$ uzayında bir metriktir. Bu durumda, bu metrik ile, $\mathbb{R}^n$ bir metrik uzay olur. Bu uzaya Öklid uzayı denir ve genellikle $E^n$ ile gösterilir.
+
+\textbf{Tanım 2.2} \\
+$I$, $\mathbb{R}$'nin bir açık aralığı olmak üzere,
+\[
+\alpha : I \subset \mathbb{R} \to \mathbb{R}^n
+\]
+biçiminde diferensiyellenebilir bir $\alpha$ dönüşümüne, $\mathbb{R}^n$ uzayı içinde bir eğri denir.
+
+\textbf{Tanım 2.3} \\ 
+$\alpha : I \subset \mathbb{R} \to \mathbb{R}^n$ eğrisi verilsin. $I$ aralığının bir $u$ noktasındaki teğet uzayı olan $T_u(\mathbb{R})$ uzayı 1-boyutlu bir vektör uzayıdır. $\mathbb{R}$'deki koordinat fonksiyonu $x$ olmak üzere, $T_u(\mathbb{R})$ uzayının doğal tabanı
+\[
+\left\{ \frac{d}{dx}(u) \right\}
+\]
+kümesidir. $\frac{d}{dx}$, $\mathbb{R}$ uzayının her bir $u$ noktasına $\frac{d}{dx}(u)$ vektörünü karşılık getiren bir vektör alanıdır.
+
+
+
+$\alpha^\ast_u : T_u(\mathbb{R}) \to T_{\alpha(u)} (\mathbb{R}^n)$ dönüşümünde, $\alpha^\ast_u \frac{d}{dx}(u)$ vektörüne, $\alpha$ eğrisinin $\alpha(u)$ noktasındaki hız vektörü denir ve kısaca $\alpha^\prime(u)$ ile gösterilir   .
+
+\textbf{Tanım 2.4} \\ 
+Bir 
+\[
+\alpha: I \subset \mathbb{R} \to \mathbb{R}^3, \quad s \mapsto \alpha(s)
+\]
+eğrisi için,
+\[
+\|\alpha^\prime(s) \| = 1, \quad \forall s \in I
+\]
+ise $\alpha$ eğrisine birim hızlı eğri denir. Bu durumda eğrinin $s \in I$ parametresine yay parametresi adı verilir .
+
+\textbf{Tanım 2.5} \\ 
+$\mathbb{R}^3$ uzayında birim hızlı $\alpha: I \subset \mathbb{R} \to \mathbb{R}^3$ eğrisi için
+\[
+T(s) = \alpha^\prime(s)
+\]
+eşitliğiyle belirli $T(s)$ vektörüne, $\alpha$ eğrisinin $\alpha(s)$ noktasındaki birim teğet vektörü denir. $T$ vektör alanına, $\alpha$ eğrisinin teğet vektör alanı adı verilir   .
+
+\textbf{Tanım 2.6} \\ 
+$\mathbb{R}^3$ uzayında birim hızlı $\alpha: I \subset \mathbb{R} \to \mathbb{R}^3$ eğrisi için
+\[
+\kappa: I \to \mathbb{R}, \quad \kappa(s) = \|T^\prime(s) \|
+\]
+fonksiyonuna $\alpha$ eğrisinin eğrilik fonksiyonu denir. $\kappa(s)$ sayısına eğrinin $\alpha(s)$ noktasındaki eğriliği denir   .
+
+\textbf{Tanım 2.7} \\ 
+$\mathbb{R}^3$ uzayında birim hızlı $\alpha: I \subset \mathbb{R} \to \mathbb{R}^3$ eğrisi için
+\[
+N(s) = \frac{1}{\kappa(s)} T^\prime(s)
+\]
+eşitliğiyle belirli $N(s)$ vektörüne, $\alpha$ eğrisinin $\alpha(s)$ noktasındaki birinci dik vektörü (asli normali) denir. $N$ vektör alanına, $\alpha$ eğrisinin birinci dik vektör alanı (asli normal vektör alanı) adı verilir.
+
+\textbf{Tanım 2.8} \\
+$\mathbb{R}^3$ uzayında birim hızlı $\alpha: I \subset \mathbb{R} \to \mathbb{R}^3$ eğrisi için
+\[
+B(s) = T(s) \times N(s)
+\]
+eşitliği ile tanımlı $B(s)$ vektörüne, $\alpha$ eğrisinin $\alpha(s)$ noktasındaki ikinci dik vektörü (binormali) denir. $B$ vektör alanına, $\alpha$ eğrisinin ikinci dik vektör alanı (binormal vektör alanı) adı verilir   .
+
+\textbf{Tanım 2.9} \\
+$T(s)$, $N(s)$, $B(s)$ vektörlerine, $\alpha : I \subset \mathbb{R} \to \mathbb{R}^3$ eğrisinin $\alpha(s)$ noktasındaki Frenet vektörleri denir.
+\[
+\{T(s), N(s), B(s)\}
+\]
+kümesine, $\alpha$ eğrisinin $\alpha(s)$ noktasındaki Frenet çatısı ve $T$, $N$, $B$ vektör alanlarına, $\alpha$ eğrisi üstünde Frenet vektör alanları adı verilir   .
+
+\textbf{Tanım 2.10} \\
+$\alpha: I \subset \mathbb{R} \to \mathbb{R}^3$ birim hızlı eğrisinin Frenet vektör alanları $T$, $N$, $B$ olmak üzere,
+\[
+\tau : I \to \mathbb{R}, \quad \tau(s) = -\langle B^\prime(s), N(s) \rangle
+\]
+fonksiyonuna, $\alpha$ eğrisinin burulma fonksiyonu denir. $\tau(s)$ sayısına eğrinin $\alpha(s)$ noktasındaki torsionu (burulması) denir   .
+
+\textbf{Teorem 2.1} \\
+$\mathbb{R}^3$ uzayındaki birim hızlı $\alpha : I \subset \mathbb{R} \to \mathbb{R}^3$ eğrisini göz önüne alalım. Frenet vektör alanları $T$, $N$, $B$ ve bu eğrinin eğrilik ve torsionu sırasıyla $\kappa$, $\tau$ olmak üzere,
+\[
+T^\prime = \kappa N, \quad
+N^\prime = -\kappa T + \tau B, \quad
+B^\prime = \tau N
+\]
+dir   .
+
+\textbf{Teorem 2.2} \\
+Birim hızlı olmayan,
+\[
+\alpha: I \subset \mathbb{R} \to \mathbb{R}^3, \quad u \mapsto \alpha(u)
+\]
+eğrisini göz önüne alalım. Frenet vektör alanları $T$, $N$, $B$ ve bu eğrinin eğrilik ve torsionu, sırasıyla, $\kappa$, $\tau$ olmak üzere,
+\[
+T = \frac{\alpha^\prime}{\|\alpha^\prime\|}, \quad
+N = B \times T, \quad
+B = \frac{\alpha^\prime \times \alpha^{\prime\prime}}{\langle \alpha^\prime \times \alpha^{\prime\prime}, \alpha^{\prime\prime\prime} \rangle}
+\]
+dir.
+
+\textbf{Teorem 2.3} \\ 
+Birim hızlı olmayan,
+\[
+\alpha: I \subset \mathbb{R} \to \mathbb{R}^3, \quad u \mapsto \alpha(u)
+\]
+eğrisini göz önüne alalım. Frenet vektör alanları $T$, $N$, $B$ ve bu eğrinin eğrilik ve torsionu (burulması), sırasıyla, $\kappa$, $\tau$ olsun. $\|\alpha^\prime(u)\| = \nu$ olmak üzere,
+\[
+T^\prime = \nu \kappa N, \quad
+N^\prime = \nu(-\kappa T + \tau B), \quad
+B^\prime = \nu \tau N
+\]
+dir   .
+
+\textbf{Tanım 2.11} \\
+$\mathbb{R}^3$ uzayındaki birim hızlı $\alpha: I \to \mathbb{R}^3$ eğrisinin Frenet vektör alanları $T$, $N$, $B$ olsun.
+\begin{itemize}
+    \item $\{T(s), N(s)\}$ kümesinin gerdiği düzleme, $\alpha(s)$ noktasındaki \textbf{dokunum düzlemi} veya \textbf{oskülatör düzlem} denir.
+    \item $\{T(s), B(s)\}$ kümesinin gerdiği düzleme, $\alpha(s)$ noktasındaki \textbf{doğrultma düzlemi} veya \textbf{rektifiyan düzlem} denir.
+    \item $\{N(s), B(s)\}$ kümesinin gerdiği düzleme, $\alpha(s)$ noktasındaki \textbf{dik düzlem} veya \textbf{normal düzlem} denir   .
+\end{itemize}
+
+\textbf{Tanım 2.12} \\
+Eğer bir eğrinin bütün noktaları bir düzlem tarafından içeriliyorsa bu eğriye \textbf{düzlemsel} denir   .
+
+\textbf{Tanım 2.13} \\
+\[
+\alpha: I \subset \mathbb{R} \to \mathbb{R}^3, \quad s \mapsto \alpha(s)
+\]
+birim hızlı bir eğri olsun. $\kappa(s) \neq 0$ olacak şekilde $\alpha$ eğrisinin, teğet vektörü sabit bir doğrultu ile sabit açı yapıyorsa bu $\alpha$ eğrisine \textbf{genel helis} adı verilir. $\kappa(s) \neq 0$ ve $\tau(s)$ ikisi birden sabit ise $\alpha$ eğrisine \textbf{dairesel helis} denir   .
+
+\textbf{Teorem 2.4} \\ 
+\[
+\alpha: I \subset \mathbb{R} \to \mathbb{R}^3, \quad s \mapsto \alpha(s)
+\]
+birim hızlı bir eğri olsun. $\alpha$ eğrisinin, genel helis olması için gerek ve yeter şart,
+\[
+\frac{\tau}{\kappa}(s) = \text{sabit}, \quad \forall s \in I
+\]
+olmasıdır.
+
+\textbf{Teorem 2.5} \\
+$\alpha$ eğrisinin teğetler göstergesinin geodezik eğriliği, $\frac{\tau}{\kappa}$ oranıdır   .
+
+\textbf{Tanım 2.14} \\
+\[
+\alpha: I \subset \mathbb{R} \to \mathbb{R}^3, \quad s \mapsto \alpha(s)
+\]
+birim hızlı bir eğri olsun. $\kappa(s) \neq 0$ olacak şekilde $\alpha$ eğrisinin, asli normal vektörü sabit bir doğrultu ile sabit açı yapıyorsa bu $\alpha$ eğrisine \textbf{slant helis} adı verilir   .
+
+\textbf{Teorem 2.6} \\
+Eğriliği sıfırdan farklı olan bir birim hızlı $\alpha$ eğrisinin slant helis olması için gerek ve yeter şart,
+\[
+\sigma(s) = \frac{\kappa^2}{(\tau^2 + \kappa^2)^{\frac{3}{2}}} \tau \kappa^\prime(s)
+\]
+fonksiyonunun sabit olmasıdır   .
+
+\textbf{Tanım 2.15} \\
+$\alpha: I \to \mathbb{R}^3$ birim hızlı eğrisi ve $S^2$ küresi verilsin. Eğer $\alpha \subset S^2$ ise $\alpha$ eğrisine \textbf{küresel eğri} denir   .
+
+\textbf{Teorem 2.7} \\
+$\alpha: I \to \mathbb{R}^3$ eğrisi verilsin. Aşağıdaki denklemler denktir:
+\begin{enumerate}
+    \item $\alpha$ bir küresel eğridir.
+    \item $\frac{1}{\kappa^2} + \frac{1}{\nu \tau} \frac{1}{\kappa^{\prime 2}} = r^2$.
+    \item $\frac{1}{\nu} \frac{1}{\nu \tau} \frac{1}{\kappa^{\prime \prime}} + \frac{\tau}{\kappa} = 0$.
+    \item $\frac{1}{\kappa} = A \cos (\nu \tau ds) + B \sin (\nu \tau ds)$
+    \end{enumerate}
+burada, $A$, $B$ sabitler ve $\sqrt{A^2 + B^2} = r$ dir   .
+
+\textbf{Tanım 2.16} \\
+\textbf{Antipodal nokta}, küre yüzeyindeki bir noktaya diametrik olarak karşıt olan noktaya denir.
+
+\textbf{Tanım 2.17} \\
+Uzayda bir dairesel koni yüzeyi ile bir düzlemin arakesitlerinden elde edilen eğrilere \textbf{konik eğriler} adı verilir   .
+\textbf{Tanım 2.18} \\
+Düzlemde, sabit iki noktaya uzaklıkları toplamı sabit olan noktaların geometrik yerine \textbf{elips} denir. Sabit olan iki noktaya elipsin odakları adı verilir, yani:
+\[
+E = \{P \mid |f_1P| + |f_2P| = 2a, \, f_1, f_2 \in \mathbb{R}^2, \, a \in \mathbb{R}^+\}
+\]
+dir. Burada $f_1 = (c, 0)$, $f_2 = (-c, 0)$ elipsin odaklarıdır ve $a^2 = b^2 + c^2$ eşitliği sağlanır. Elipsin parametrik ve kartezyen koordinatlardaki denklemleri sırasıyla:
+\[x = a \cos t, \quad y = b \sin t,\]ve
+\[\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1\]dir. 
+Burada $a, b \in \mathbb{R}$ dir.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Ekran Resmi 2025-05-05 ÖS 6.34.48.png}
+\end{figure}
+
+\textbf{Tanım 2.19} \\
+Düzlemde, sabit iki noktaya olan uzaklıkları mutlak farkı sabit olan noktaların geometrik yerine \textbf{hiperbol} denir. Sabit olan iki noktaya hiperbolün odakları adı verilir, yani:
+\[
+E = \{P \mid ||f_1P| - |f_2P|| = 2a, \, f_1, f_2 \in \mathbb{R}^2, \, a \in \mathbb{R}^+\}
+\]
+dir. Burada $f_1 = (c, 0)$, $f_2 = (-c, 0)$ hiperbolün odaklarıdır ve $c^2 = a^2 + b^2$ eşitliği sağlanır. Hiperbolün parametrik ve kartezyen koordinatlardaki denklemleri sırasıyla:
+\[
+x = a \sec t, \quad y = b \tan t,
+\]
+ve
+\[
+\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1
+\]
+dir. Burada $a, b \in \mathbb{R}$ dir.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.25\linewidth]{Ekran Resmi 2025-05-05 ÖS 6.41.19.png}
+\end{figure}
+
+
+
+\textbf{Tanım 2.20} \\
+Düzlemde, sabit bir doğruya uzaklığı, doğru üzerinde bulunmayan sabit bir noktaya olan uzaklığına eşit olan noktaların geometrik yerine \textbf{parabol} denir. Sabit noktaya parabolün odağı ve sabit doğruya da parabolün doğrultmanı adı verilir. Parabolün standart denklemi, doğrultmanı $x = -\frac{p}{2}$ alınırsa:
+\[
+x - x_0 = \frac{t^2}{2p}, \quad y - y_0 = t
+\]
+veya
+\[
+x - x_0 = \frac{1}{2p}(y - y_0)^2
+\]
+dir. Burada $p, x_0, y_0 \in \mathbb{R}$ dir.
+
+\textbf{Şekil 2.3: Parabol}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Ekran Resmi 2025-05-05 ÖS 6.45.45.png}
+\end{figure}
+
+
+\textbf{Tanım 2.21} \\
+Düzlemde, 4. dereceden cebirsel eğriye \textbf{kuartik düzlem eğrisi} denir ve aşağıdaki 2 değişkenli kuartik denklem formunda verilebilir:
+\[
+Ax^4 + By^4 + Cx^3y + Dx^2y^2 + Exy^3 + Fx^3 + Gy^3 + Hx^2y + Ixy^2 + Jx^2 + Ky^2 + Lxy + Mx + Ny + P = 0.
+\]
+Burada $A, B, C, D, E$ sabitlerinden en az biri sıfırdan farklıdır   .
+\textbf{Tanım 2.22} \\
+Düzlemde,
+\[
+Ax^4 + By^4 + Dx^2y^2 + Jx^2 + Ky^2 = 0
+\]
+denklemi ile verilen eğriye \textbf{özel kuartik düzlem eğrisi} adı verilir. Burada $A, B, D$ en az biri sıfırdan farklı sabitlerdir.
+
+Özel olarak,
+\[
+A = \cos^2 b, \quad B = \cos^2 a \csc^2 b \sin^2 a, \quad D = \cos^2 a + \cot^2 b \sin^2 a,
+\]
+\[
+J = -\cos^2 b, \quad K = -\cos^2 a \csc^2 b \sin^2 a
+\]
+olarak seçilirse, elde edilen özel kuartik düzlem eğrisinin grafiği Şekil 2.4'teki gibidir.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Ekran Resmi 2025-05-05 ÖS 6.47.50.png}
+\end{figure}
+\textbf{Şekil 2.4:}
+
+Sırasıyla, $a = \pi/3$, $b = \pi/4$; $a = \pi/3$, $b = \pi/8$; $a = \pi/3$, $b = \pi/12$ değerleri için özel kuartik düzlem eğrileri.
+
+\textbf{Tanım 2.23} \\
+Uzayda bir $\alpha : I \to \mathbb{R}^3$ eğrisi ile bir $u$ vektörü verilsin. Burada $I$, $\mathbb{R}$'nin bir alt aralığıdır. Eğrinin her bir $\alpha(t)$ noktasında, $u$ vektörüne paralel olan bir ve yalnız bir $L(t)$ doğrusu vardır. Bu $L(t)$ doğrularının birleşimi olan yüzeye \textbf{silindir yüzeyi} adı verilir. $\alpha$ eğrisine silindir yüzeyinin \textbf{dayanak eğrisi}, $u$ vektörüne silindir yüzeyinin \textbf{doğrultman vektörü} denir. $L(t)$ doğrusuna, silindir yüzeyinin, $\alpha(t)$ noktasındaki \textbf{ana doğrusu} adı verilir   .
+
+\textbf{Tanım 2.24} \\
+Uzayda bir $\alpha: I \to \mathbb{R}^3$ eğrisi ile bu eğri üstünde bulunmayan bir $H$ noktası verilsin. Burada $I$, $\mathbb{R}$'nin bir alt aralığıdır. Eğrinin her bir $\alpha(t)$ noktası için $\alpha(t)$ ve $H$ noktası bir $L(t)$ doğrusu belirler. Bu $L(t)$ doğrularının birleşimi olan yüzeye \textbf{koni yüzeyi} adı verilir. $\alpha$ eğrisine koni yüzeyinin \textbf{dayanak eğrisi}, $H$ noktasına koni yüzeyinin \textbf{tepe noktası} denir. $L(t)$ doğrusuna, koni yüzeyinin, $\alpha(t)$ noktasındaki \textbf{ana doğrusu} adı verilir   .
+
+\textbf{Tanım 2.25} \\
+Dayanak eğrisi kuartik düzlem eğrisi olan silindir yüzeyine \textbf{kuartik silindir yüzeyi} adı verilir.
+
+\textbf{Tanım 2.26} \\
+Dayanak eğrisi kuartik düzlem eğrisi olan koni yüzeyine \textbf{kuartik koni yüzeyi} denir.
+\section*{3. Küresel Konikler}
+
+Bu bölümde, küresel koniklerle ilgili literatür taraması yapılmış ve bulunan çalışmalar ile ilgili bilgi verilmiştir. Ayrıca bu bölüm boyunca farklı küresel iki $X$ ve $Y$ noktaları arasındaki yay uzunluğu $|\overset{\frown}{XY}| = |XOY|$ ile gösterilecektir.
+
+Geometride konikler çok önemli bir yer tutmaktadır. 1877’de Sykes, küresel konikleri 
+\textit{"Küresel konikler küre ile tepe noktası kürenin merkezi olan eliptik koninin arakesitidir"} 
+olarak tanımlamıştır   .
+
+1959’da, Namikawa küresel elips ve hiperbolleri aşağıdaki şekilde tanımlamıştır: $F_1$ ve $F_2$, küre üzerinde sabit iki nokta olsun.
+\[
+|\overset{\frown}{F_1P}| + |\overset{\frown}{F_2P}| = \text{sabit}, \quad F_1 \neq F_2
+\tag{3.1}
+\]
+olacak şekilde küre üzerindeki $P$ noktalarının kümesine \textbf{küresel elips} adı verilir   .
+
+Benzer şekilde
+\[
+\big||\overset{\frown}{F_1P^\prime}| - |\overset{\frown}{F_2P^\prime}|\big| = \text{sabit}, \quad F_1 \neq F_2
+\tag{3.2}
+\]
+olacak şekilde küre üzerindeki $P^\prime$ noktalarının kümesine \textbf{küresel hiperbol} adı verilir   .
+
+Dirnböck, 1999 yılında Sykes’in vermiş olduğu tanım ve teoremler yardımıyla küresel konikler için şu parametrik denklemi vermiştir:
+\[
+x(t) = \frac{1}{R} \tan a \cos t, \quad
+y(t) = \frac{1}{R} \tan b \sin t, \quad
+z(t) = \pm \frac{1}{R},
+\]
+burada
+\[
+R = \sqrt{(\tan a \cos t)^2 + (\tan b \sin t)^2 + 1}.
+\]
+
+Ayrıca bu küresel konik için küresel evolüt eğrisinin parametrik denklemini şu şekilde elde etmiştir:
+\[
+x(t) = \frac{m}{R_1} \cos^3 t, \quad
+y(t) = \frac{n}{R_1} \sin^3 t, \quad
+z(t) = \pm \frac{1}{R_1},
+\]
+burada
+\[
+m = \frac{\sin^2 a - \sin^2 b}{\sin a \cos a}, \quad
+n = \frac{\sin b \cos b}{\sin^2 b - \sin^2 a}, \quad
+R_1 = \sqrt{m^2 \cos^6 t + n^2 \sin^6 t + 1},
+\]
+ve $0 < b < a < \frac{\pi}{2}$ dir   .
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Ekran Resmi 2025-05-05 ÖS 6.48.57.png}
+\end{figure}
+ 
+ 
+ Dirnbock tarafından verilen küresel elips ve evolütü
+
+2004 yılında Xiong, \textit{Küresel Eğrilerin Geometrisi} isimli doktora tez çalışmasını yayınlamış ve küresel eğriler için gerçek açının ve yansıma açısının eşit olduğunu ispatlamıştır   .
+
+2005 yılında Maeda, Sykes’in çalışmalarını derlemiş, tanım ve teoremlerini kullanıp aşağıdaki teorem ve sonuca ulaşmıştır:
+
+\textbf{Teorem 3.1} \\
+Küresel elipsler, $S^2$ birim küre ile tepe noktası kürenin merkezi olan eliptik konisinin arakesitidir:
+\[
+\frac{x^2}{\tan^2 a} + \frac{y^2}{\tan^2 b} = z^2 \quad (z > 0).
+\tag{3.3}
+\]
+
+\textit{İspat.} \\
+$P(x, y, z)$ küresel elips üzerinde bir nokta ve $C(\sin c, 0, \cos c)$, $C^\prime(-\sin c, 0, \cos c)$ küresel elipsin odak noktaları olsun. Böylece:
+\[
+\cos(|COP|) = x \sin c + z \cos c, \quad \sin(|COP|) = \sqrt{1 - (x \sin c + z \cos c)^2},
+\]
+\[
+\cos(|C^\prime OP|) = -x \sin c + z \cos c, \quad \sin(|C^\prime OP|) = \sqrt{1 - (-x \sin c + z \cos c)^2}.
+\]
+
+$\cos(|COP| + |C^\prime OP|) = \cos(2a)$ olduğundan gerekli işlemler yapılırsa:
+\[
+z^2 \cos^2 c - x^2 \sin^2 c - \cos(2a) = \big(1 - (x \sin c + z \cos c)^2\big)\big(1 - (-x \sin c + z \cos c)^2\big)
+\]
+olarak bulunur. Her iki tarafın karesi alınırsa:
+\[
+-2 \cos(2a)(z^2 \cos^2 c - x^2 \sin^2 c) + \cos^2(2a) = 1 - 2(x^2 \sin^2 c + z^2 \cos^2 c)
+\]
+bulunur. Sonuç olarak:
+\[
+\frac{x^2}{\sin^2 a / \sin^2 c} + \frac{y^2}{\cos^2 a / \cos^2 c} = 1.
+\tag{3.4}
+\]
+
+$\cos a = \cos b \cos c$ ve $x^2 + y^2 + z^2 = 1$ eşitlikleri kullanılırsa:
+\[
+\frac{x^2}{\sin^2 a / \sin^2 c} + \frac{z^2}{\cos^2 b} = x^2 + y^2 + z^2.
+\tag{3.5}
+\]
+
+Böylece:
+\[
+\frac{x^2}{\tan^2 a} + \frac{y^2}{\tan^2 b} = z^2
+\tag{3.6}
+\]
+olarak bulunur   .
+\textbf{Şekil 3.2:}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Ekran Resmi 2025-05-05 ÖS 6.51.32.png}
+\end{figure}
+
+
+Eliptik koni ile kürenin arakesiti olan küresel elips
+
+Maeda, yukarıdaki teoremin bir sonucu olarak küresel elipslerin küre ile eliptik silindirin arakesiti olarak da verilebileceğini aşağıdaki sonuçta belirtmiştir.
+
+\textbf{Sonuç 3.1} \\
+Küresel elips, $S^2$ birim küresi ile aşağıda verilen denklemlerle tanımlanan üç eliptik silindirin herhangi birinin arakesiti olarak belirlenir:
+\[
+\frac{x^2}{\sin^2 b} + \frac{y^2}{\sin^2 b} = 1 \quad (z > 0), \tag{3.7}
+\]
+\[
+\frac{z^2}{\cos^2 b} + \frac{x^2}{\sin^2 a} = 1 \quad (z > 0), \tag{3.8}
+\]
+\[
+\frac{z^2}{\cos^2 a} + \frac{y^2}{\sin^2 a} = 1 \quad (z > 0). \tag{3.9}
+\]
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Ekran Resmi 2025-05-05 ÖS 6.52.39.png}
+\end{figure}
+\textbf{Şekil 3.3:} 
+
+
+$a = \frac{\pi}{3}$, $b = \frac{\pi}{4}$ ve $c = \frac{\pi}{4}$ değerleri için, (3.7) denklemi ile verilen silindirin küre ile arakesiti (a), (3.8) denklemi ile verilen silindirin küre ile arakesiti (b) ve (3.9) denklemi ile verilen silindirin küre ile arakesiti (c)   .
+
+Maeda, 2006’da küresel konik tanımının düzlemdeki konik tanımından odak noktalarına olan uzaklığın yay uzunluğu olmasından dolayı oldukça farklı olduğunu belirtmiş ve aşağıdaki önerme, uyarıyı ve bunlara ek olarak bir sonuç vermiştir:
 
 \textbf{Önerme 3.1} \\
 $F_1 = (\sin c, 0, \cos c)$, $F_2 = (-\sin c, 0, \cos c)$, $S^2$ üzerinde iki nokta olsun. Küresel elips, $|\overset{\frown}{F_1P}| + |\overset{\frown}{F_2P}| = 2a$ koşulunu sağlayan $S^2$ üzerindeki $P$ noktaları tarafından belirlenir. Buradan bu küresel elips, $S^2$ ile
@@ -98,3 +579,5 @@ burada $|t - \phi| = 2b$ ve $b$, $c$ sabittir   .
 21. Wong, Y. C. *On an explicit characterization of spherical curves*, Proceedings of the American Mathematical Society, 1972, 34, no.1, 239-242.
 
 \end{document}
+
+
